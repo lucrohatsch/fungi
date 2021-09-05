@@ -4,7 +4,6 @@ function inicio(){
     mensajes = document.getElementById("mensajes");
     conectar_mqtt();
     suscribir_mqtt();
-//    conectar_socket();
     actualizador();
 
 }
@@ -36,35 +35,18 @@ function suscribir_mqtt(){
 				}
 			})
 }
-/*
-function conectar_socket() {
-    const socket = io();
-    
-    socket.on('connect', function() {
-    console.log("Conectado a WS");
-    socket.emit('confirma', {data: 'Mensaje desde la web'});
-    console.log("despues de enviar mensaje");
-    });
-
-    socket.on('connect_error', function(e){
-         console.log(e);  
-    });
-    
-}
-
-*/
 
 function actualizador() {
     client.on('message', (topic, message) =>{
         var json_mqtt=message.toString();
         json_mqtt=json_mqtt.replace(/['"]+/g, '"');	
         console.log(json_mqtt);			
-        /*var msn = JSON.parse(json_mqtt);
+        var msn = JSON.parse(json_mqtt);
 
         for (i in msn){
             var destino = i;
             document.getElementById(destino).innerHTML=msn[i];
-        }*/				
+        }			
         console.log('Mensaje recibido bajo topico: ', topic, '->', message.toString());
 })
     

@@ -7,15 +7,53 @@
     <title>Fungi 0.1</title>
     <script src="static/js/fuente.js"></script>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <link rel="stylesheet" href="static/css/estilo.css"
 
 </head>
 <body>
-    <h1>Fungi</h1
-    <p>Un sistema de cultivoIOT</p>
-    
-    <ul id="mensajes">
+    <h1>Fungi</h1>
+    <p>Sistema de control basado en cultivoIOT</p>
 
-    </ul>
-    
+    <article>
+        <h2>Monitor</h2>
+        <div class="caja">
+            <p>Temperatura</p>
+            <p id="TEMP" class="valor">0</p>
+            <p>ºC</p>
+        </div>
+        <div class="caja">
+            <p>Humedad</p>
+            <p id="HUME" class="valor">0</p>
+            <p>%</p>
+        </div>
+        <div class="caja">
+            <p>CO2</p>
+            <p id="CO2" class="valor">0</p>
+            <p>%</p>
+        </div>
+        
+    </article>
+
+    <article>
+        <h2>Control</h2>
+        <div class="caja">
+            <p>Ventilción</p>
+            <input type="checkbox">
+        </div>
+        <div class="caja">
+            <p>Niebla</p>
+            <input type="checkbox">
+        </div>
+        <div class="caja">
+            <p>Refrigeración</p>
+            <input type="checkbox">
+        </div>
+        <div class="caja">
+            <p>Calefacción</p>
+            <input type="checkbox">
+        </div>
+    </article>
+
+
 </body>
 </html>

@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'arial';
+
+}
+
+body{
+    background-color: azure;
+}
+
+.caja{
+	margin-top: 20px;
+	display: inline-block; 
+	border: double;
+	border-radius: 10px;
+	text-align: center; 
+	padding: 5px; 
+	width: 130px; 
+	height: 130px; 
+	box-shadow: 1px 2px 1px 0 grey; 
+	margin: 5px;
+}
+
+.valor{
+	font-size: 35px;
+	line-height: 2; 
+	margin: 0; 
+	padding: 0;
+
+}
