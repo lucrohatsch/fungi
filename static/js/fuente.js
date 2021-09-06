@@ -2,6 +2,16 @@ console.log("Hola Fungi world");
 
 function inicio(){
     mensajes = document.getElementById("mensajes");
+    cV = document.getElementById('cV');
+    cV.addEventListener('change', control, false);
+    cB = document.getElementById('cB');
+    cB.addEventListener('change', control, false);
+    cN = document.getElementById('cN');
+    cN.addEventListener('change', control, false);
+    cRe = document.getElementById('cRe');
+    cRe.addEventListener('change', control, false);
+    cCa = document.getElementById('cCa');
+    cCa.addEventListener('change', control, false);
     conectar_mqtt();
     suscribir_mqtt();
     actualizador();
@@ -49,9 +59,23 @@ function actualizador() {
         }			
         console.log('Mensaje recibido bajo topico: ', topic, '->', message.toString());
 })
-    
+
 }
 
+
+function control() {
+    console.log(this);
+    var vX = this.checked;
+	var cX = this.getAttribute('id');
+	var ctrl_obj = {equipo: cX, estado: vX};
+	var ctrl_json = JSON.stringify(ctrl_obj);
+	console.log(ctrl_json);
+	client.publish('fungi/controles', ctrl_json, (error) => {
+			console.log(error || 'mensaje enviado')
+			})
+	console.log("vX=", vX, " y cX=", cX);
+
+}
 
 
 window.addEventListener("load", inicio,false);
