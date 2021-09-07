@@ -37,7 +37,7 @@ function conectar_mqtt() {
 
 function suscribir_mqtt(){
 	
-	client.subscribe('fungi', {qos:2}, (error)=>{
+	client.subscribe('fungi/lecturas', {qos:2}, (error)=>{
 		if (!error){
 			console.log('Suscripcion exitosa')
 		}else{

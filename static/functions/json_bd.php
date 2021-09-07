@@ -2,9 +2,9 @@
 	$data = json_decode(file_get_contents('php://input'));
 //	$USR = $data->USR;
 	$LOT = "001TEST";
-	$TEMP = $data->T;
-	$HUME = $data->H;
-	$CO2 = $data->C;
+	$TEMP = $data->TEMP;
+	$HUME = $data->HUME;
+	$CO2 = $data->CO2;
 	$UA = date("Y-m-d H:i:s");
 
 $SQLt = "INSERT INTO `temperatura` (`ID`,`LOTE`,`FECHA`,`TEMP`) VALUES (NULL,'$LOT', '$UA','$TEMP')";
