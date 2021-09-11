@@ -10,69 +10,112 @@
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
     <link rel="stylesheet" href="static/css/estilo.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-    <!--script src="static/js/graficos.js"></script-->
 </head>
 <body>
-    <h1>Fungi</h1>
-    <p>Sistema de control basado en cultivoIOT</p>
-
-    <article>
+    <header>
+        <h1>Fungi</h1>
+        <p>Sistema de control basado en cultivoIOT</p>
+    </header>
+    <p id="logg"></p>
+    <article class="flex-container" id="monitor">
         <h2>Monitor</h2>
-        <div class="caja">
-            <p>Temperatura</p>
-            <p id="TEMP" class="valor">0</p>
-            <p>ºC</p>
+        <div class="sala" id="S00">
+            <h3>Sala 0</h3>
+            <p>Inoculación etapa granos</p>
+            <div class="caja">
+                <p>Temperatura 1</p>
+                <p class="valor TEMP">0</p>
+                <p>ºC</p>
+            </div>
+            <div class="caja">
+                <p>Humedad 1</p>
+                <p class="valor HUME">0</p>
+                <p>%</p>
+            </div>
+            <div class="caja">
+                <p>Temperatura 2</p>
+                <p class="valor TEMP">0</p>
+                <p>ºC</p>
+            </div>
+            <div class="caja">
+                <p>Humedad 2</p>
+                <p class="valor HUME">0</p>
+                <p>%</p>
+            </div>
         </div>
-        <div class="caja">
-            <p>Humedad</p>
-            <p id="HUME" class="valor">0</p>
-            <p>%</p>
+
+        <div class="sala" id="S01">
+            <h3>Sala 1</h3>
+            <p>Inoculación etapa sustrato</p>
+            <div class="caja">
+                <p>Temperatura 1</p>
+                <p class="valor TEMP">0</p>
+                <p>ºC</p>
+            </div>
+            <div class="caja">
+                <p>Humedad 1</p>
+                <p class="valor HUME">0</p>
+                <p>%</p>
+            </div>
+            <div class="caja">
+                <p>Temperatura 2</p>
+                <p class="valor TEMP">0</p>
+                <p>ºC</p>
+            </div>
+            <div class="caja">
+                <p>Humedad 2</p>
+                <p class="valor HUME">0</p>
+                <p>%</p>
+            </div>
+            <div class="caja">
+                <p>CO2</p>
+                <p class="valor CO2">0</p>
+                <p>ppm</p>
+            </div>
         </div>
-        <div class="caja">
-            <p>CO2</p>
-            <p id="CO2" class="valor">0</p>
-            <p>%</p>
-        </div>
-        
     </article>
 
-    <article>
+    <article class="flex-container">
         <h2>Control</h2>
-        <div class="caja">
-            <p>Ventilción</p>
-            <input id="cV" type="checkbox">
+        <div class="sala">
+            <h3>Sala 1</h3>
+            <div class="caja">
+                <p>Ventilción</p>
+                <input id="cV" type="checkbox">
+            </div>
+            <div class="caja">
+                <p>Niebla</p>
+                <input id="cN" type="checkbox">
+            </div>
+            <div class="caja">
+                <p>Refrigeración</p>
+                <input id="cRe" type="checkbox">
+            </div>
+            <div class="caja">
+                <p>Calefacción</p>
+                <input id="cCa" type="checkbox">
+            </div>
+            <div class="caja">
+                <p>Bomba</p>
+                <input id="cB" type="checkbox">
+            </div>
         </div>
-        <div class="caja">
-            <p>Niebla</p>
-            <input id="cN" type="checkbox">
+        <div class="sala">
+            <h3>Sala 2</h3>
+            <div class="caja">
+                <p>Ventilción</p>
+                <input id="cV" type="checkbox">
+            </div>
         </div>
-        <div class="caja">
-            <p>Refrigeración</p>
-            <input id="cRe" type="checkbox">
-        </div>
-        <div class="caja">
-            <p>Calefacción</p>
-            <input id="cCa" type="checkbox">
-        </div>
-        <div class="caja">
-            <p>Bomba</p>
-            <input id="cB" type="checkbox">
-        </div>
-    </article>
-    <article>
-        <label class="swich"> Ventilación
-            <input type="checkbox">
-            <span class="chekmark"></span>
-        </label>
     </article>
 
-    <article>
+    <article class="flex-container">
         <h2>Gráficos</h2>
-        <canvas id="grafico_temp" class="grafico"></canvas><br>
-        <!--canvas id="grafico_hume" class="grafico"></canvas-->
+        <canvas id="graficos"></canvas><br>
+
     </article>
     
-    <script src="static/js/graficoT.js"></script>
+    <script src="static/js/graficos.js"></script>
 
 </body>
 </html>
