@@ -6,8 +6,9 @@
 	$request = json_decode(file_get_contents('php://input', true));
 
 	$primero = json_decode($request, true);
-
-
+	$UA = date("Y-m-d H:i:s");
+	echo "la fecha de los registros es $UA \n";
+	$enlace = new mysqli ("localhost", "cultivoiot", "235689ciotDESA","mundo_fungi");
 	$cantidad_lotes = count($primero);
 
 	for ($i=0; $i<$cantidad_lotes; $i++){
@@ -20,27 +21,37 @@
 			echo "En esta bucle la etiqueta es $medida \n";
 			if ($medida =='TEMP'){
 				echo "SQL para guardar la  variable TEMP = $medidas[$e]---\n ";
+				$TEMP = $primero[$i]['data']['TEMP'];
+				$SQLt = "INSERT INTO `temperatura` (`ID`,`SALA`,`LOTE`,`FECHA`,`TEMP`) VALUES (NULL,'$SALA', '$LOTE', '$UA','$TEMP')";
+				insertar($SQLt);
 			}
-			elseif ($medidas=='HUME') {
+			elseif ($medida=='HUME') {
 				echo "SQL para guardar la  variablo HUME $medidas[$e]------\n";
+				$HUME = $primero[$i]['data']['HUME'];
+				$SQLh = "INSERT INTO `humedad` (`ID`,`SALA`,`LOTE`,`FECHA`,`HUME`) VALUES (NULL,'$SALA', '$LOTE', '$UA','$HUME')";
+				insertar($SQLh);
 			}
-			elseif ($medidas=='CO2') {
+			elseif ($medida=='CO2') {
 				echo "SQL para guardar la  variablo CO2 $medidas[$e]------\n";
+				$CO2 = $primero[$i]['data']['CO2'];
+				$SQLc = "INSERT INTO `co2` (`ID`,`SALA`,`LOTE`,`FECHA`,`CO2`) VALUES (NULL,'$SALA', '$LOTE', '$UA','$CO2')";
+				insertar($SQLc);
 			}
-			else {echo "No se ejecuta ninun registro\n";}
+			else {echo "No se ejecuta ningun registro\n";}
+
 		}
 	}
+
+function insertar($SQL){
+
+	$escribe = $enlace->query($SQL);
+	if (!$escribe) {
+		printf("Se enviò el query: $SQL");
+		printf("Errormessage: %s\n", $enlace->error);}
+	else {echo "Registro insertado correctamente\n";}	
+
+$enlace->close();
 /*
-	$TEMP = $data->TEMP;
-	$HUME = $data->HUME;
-	$CO2 = $data->CO2;
-	$UA = date("Y-m-d H:i:s");
-
-$SQLt = "INSERT INTO `temperatura` (`ID`,`LOTE`,`FECHA`,`TEMP`) VALUES (NULL,'$LOT', '$UA','$TEMP')";
-$SQLh = "INSERT INTO `humedad` (`ID`,`LOTE`,`FECHA`,`HUME`) VALUES (NULL,'$LOT', '$UA','$HUME')";
-$SQLc = "INSERT INTO `co2` (`ID`,`LOTE`,`FECHA`,`CO2`) VALUES (NULL,'$LOT', '$UA','$CO2')";
-//Conexión a BBDD
-
 $enlace = new mysqli ("localhost", "cultivoiot", "235689ciotDESA","mundo_fungi");
 
 $escribet = $enlace->query($SQLt);

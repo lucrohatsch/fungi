@@ -3,10 +3,26 @@
 	padding: 0;
 	margin: 0;
 	font-family: 'arial';
-	background-color: azure;
+	
+	
 	
 }
+.contenedor{
+	color: rgba(128, 255, 0, 0.884);
+	display: grid;
+	grid-template-columns: 1fr 1Fr;
+	background: #345;
+}
 
+.contenedor-grafico{
+	grid-column: 1/3;
+}
+
+header{
+	color: #345;
+	grid-column: 1/3;
+	background: rgba(128, 255, 0, 0.884);
+}
 
 .flex-container{
 	display: flex;
@@ -45,6 +61,7 @@
 #graficos{
 	width: 80%;
 	height: 300px;
+	background: rgba(51, 68, 85, 0.555) ;
 	
 }
 

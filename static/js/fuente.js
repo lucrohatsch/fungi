@@ -70,15 +70,15 @@ function actualizador() {
 
         for (i in msn){
             var sala = msn[i]["SALA"];
-            console.log(sala.toString());
+            //console.log(sala.toString());
             var lote = msn[i]['LOTE'];
             var data = msn[i]['data'];
-            console.log(data);
+            //console.log(data);
             for (e=0; e<Object.keys(data).length; e++){
                 var destino = Object.keys(data)[e];
                 console.log(destino);
                 console.log(data[e]);
-                document.getElementById(sala).getElementsByClassName(destino)[0].innerHTML=data[destino];
+                document.getElementById(sala).getElementsByClassName(destino)[i].innerHTML=data[destino];
             }
 
         } 
