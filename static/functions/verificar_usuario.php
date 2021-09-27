@@ -15,11 +15,11 @@ try{
 
 	if ($num_reg!=0){
 		session_start();
-		$_SESSION["usr"]=$_POST['usr'];
-		header("location: index.html");
+		$_SESSION["usr_fungi"]=$_POST['usr'];
+		header("location: ../../index.php");
 
 	}else{
-		header("location:login.php");
+		header("location:../../login.html");
 	}
 
 }catch(Exception $e){

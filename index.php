@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-	if(!isset($_SESSION["usr"])){
-		header("location:login.php");
+	if(!isset($_SESSION["usr_fungi"])){
+		header("location:login.html");
 	}
 
 ?>
@@ -27,6 +27,8 @@ session_start();
         <header>
             <h1>Fungi</h1>
             <p>Sistema de control basado en cultivoIOT</p>
+            <p id="usuario"> <?php $_SESSION["usr_fungi"] ?></p>
+            <a id="cerrar_sesion" href="static/functions/logout.php">Cerrar Sesión </a>
         </header>
         <article class="flex-container" id="monitor">
             <h2>Monitor</h2>
