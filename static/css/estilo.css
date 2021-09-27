@@ -24,6 +24,11 @@ header{
 	background: rgba(128, 255, 0, 0.884);
 }
 
+header > p{
+	display: inline;
+	justify-self: end;
+}
+
 .flex-container{
 	display: flex;
 	justify-content: center;
