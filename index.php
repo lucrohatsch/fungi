@@ -86,6 +86,21 @@ session_start();
                     <p>ppm</p>
                 </div>
             </div>
+
+            <div class="sala" id="LUCAS">
+                <h3>Sala Lucas</h3>
+                <p>Autocultivo</p>
+                <div class="caja">
+                    <p>Temperatura</p>
+                    <p class="valor TEMP">0</p>
+                    <p>ºC</p>
+                </div>
+                <div class="caja">
+                    <p>Humedad</p>
+                    <p class="valor HUME">0</p>
+                    <p>%</p>
+                </div>
+            </div>
         </article>
 
         <article class="flex-container">
@@ -120,6 +135,15 @@ session_start();
                     <input id="cV" type="checkbox">
                 </div>
             </div>
+
+            <div class="sala">
+                <h3>Sala Lucas</h3>
+                <div class="caja">
+                    <p>Bomba</p>
+                    <input id="cBsL" type="checkbox">
+                </div>
+            </div>
+
         </article>
 
         <article class="flex-container contenedor-grafico">

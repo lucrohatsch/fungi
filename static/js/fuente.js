@@ -12,6 +12,8 @@ function inicio(){
     cRe.addEventListener('change', control, false);
     cCa = document.getElementById('cCa');
     cCa.addEventListener('change', control, false);
+    cBsL = document.getElementById('cBsL');
+    cBsL.addEventListener('change', control, false);
     logg = document.getElementById('logg');
     conectar_mqtt();
     suscribir_mqtt();
@@ -57,6 +59,20 @@ function suscribir_mqtt(){
 			console.log('Suscripcion a S00 exitosa')
 		}else{
 			console.log('Suscripcion a S00 fallida. ' + error)
+				}
+			})
+    client.subscribe('fungi/SL/lecturas', {qos:1}, (error)=>{
+		if (!error){
+			console.log('Suscripcion a SL exitosa')
+		}else{
+			console.log('Suscripcion a SL fallida. ' + error)
+				}
+			})
+    client.subscribe('fungi/SL/controles', {qos:1}, (error)=>{
+		if (!error){
+			console.log('Suscripcion a eSL exitosa')
+		}else{
+			console.log('Suscripcion a eSL fallida. ' + error)
 				}
 			})
 }
